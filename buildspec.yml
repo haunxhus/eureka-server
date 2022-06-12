@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto8
+  build:
+    commands:
+      - java -version
+      - mvn package
+      - ls
+  post_build:
+    commands:
+      - echo Build completed tet demo
+      - mv target/eureka-server-0.0.1.jar eureka-server.jar
+      - ls
+artifacts:
+  files:
+    - eureka-server.jar
+#  discard-paths: yes
